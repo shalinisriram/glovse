@@ -1,0 +1,41 @@
+
+
+
+
+
+<div class="card" style="width: 80%;margin-left: 10%;margin-top: 1%;" >
+  <div class="card-header" >
+   QR Code Scanner
+  </div>
+  <div class="card-body">
+    <div class="needs-validation" novalidate>
+      <div class="row g-3">
+        <div class="col-4">
+          <button type="button" class="btn btn-primary" (click)="Scanner()">Scan </button>
+        </div>
+        <div class="col-4"><h1>OR</h1></div>
+        <div class="col-4">
+          <div style="text-align:center">
+            <h2>Upload an QR code</h2>
+            <input type="file" #file name="file" id="file" (change)="preview(file.files)">
+            <ngx-qrcode (result)="render($event)" [scale]= 10 [value]="value"></ngx-qrcode><br>
+            <div *ngIf="showQRCode">
+
+              <button  (click)="downloadAsPDF()">Export To PDF</button>
+            </div>
+
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+        <div class="col-4" *ngIf="isScanner">
+          <zxing-scanner  (camerasNotFound)="onCamerasNotFound($event)" (scanSuccess)="onCodeResult($event)"></zxing-scanner>
+          <button  (click)="downloadAsPDF()">Export To PDF</button>
+        </div>
+        <div class="col-4" *ngIf="QrResults != ''">
+         {{QrResults}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

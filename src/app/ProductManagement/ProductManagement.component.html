@@ -1,0 +1,181 @@
+
+<!-- <div class="card" style="width: 80%;margin-left: 10%;margin-top: 1%;" >
+  <div class="card-header" >
+   QR Code Generator
+  </div>
+  <div class="card-body">
+    <div class="needs-validation" novalidate>
+      <div class="row g-3">
+            <div class="col-4">
+                <label for="Product Number" class="form-label">Product Number</label>
+                <input type="class" class="form-control" id="Number" placeholder="10 Digit Alphanumeric Code">
+            </div>
+
+            <div class="col-4">
+                <label for="date" class="form-label">Date</label>
+                <input type="date"  class="form-control" id="date" value="2021-09-29">
+            </div>
+
+            <div class="col-4">
+                <label for="class" class="form-label">Class</label>
+                <input type="class"  class="form-control" id="class" placeholder="4">
+            </div>
+
+            <div class="col-4">
+                <label for="size" class="form-label">Size</label>
+                <input type="text"  class="form-control" id="size" placeholder="9">
+            </div>
+
+            <div class="col-4 ">
+                <label for="size" class="form-label">Side</label>
+                <select class="form-select" id="inputGroupSelect02">
+                    <option selected>Choose...</option>
+                    <option value="1">RHS</option>
+                    <option value="2">LHS</option>
+                  </select>
+            </div>
+
+            <div class="col-4">
+                <label for="cuff" class="form-label">Cuff</label>
+                <input type="cuff" class="form-control" id="cuff" placeholder="">
+            </div>
+
+            <div class="col-4">
+                <label for="kv" class="form-label">Size</label>
+                <input type="text"  class="form-control" id="kv" placeholder="40.0KVAC">
+            </div>
+
+            <div class="col-4">
+                <label for="timer" class="form-label">Timer</label>
+                <input type="text"  class="form-control" id="timer" placeholder="60 Sec">
+            </div>
+
+            <div class="col-4">
+                <label for="type" class="form-label">Size</label>
+                <input type="text"  class="form-control" id="type" placeholder="16' Glove">
+            </div>
+
+            <div class="col-4">
+                <label for="maxLeakmA" class="form-label">Max Leak mA</label>
+                <input type="text"  class="form-control" id="maxLeakmA" placeholder="24.0 mA">
+            </div>
+
+            <div class="col-4">
+                <label for="std" class="form-label">STD</label>
+                <input type="text"  class="form-control" id="std" placeholder="IEC">
+            </div>
+
+            <div class="col-4">
+                <label for="time" class="form-label">Time</label>
+                <input type="time"  class="form-control" id="time" value="09:43:00">
+            </div>
+
+            <div class="col-4">
+                <label for="temp" class="form-label">Temp</label>
+                <input type="text"  class="form-control" id="temp" placeholder="20.8">
+            </div>
+
+            <div class="col-4">
+                <label for="humidity" class="form-label">Humidity %</label>
+                <input type="text"  class="form-control" id="humidity" placeholder="84">
+            </div>
+
+            <div class="col-4">
+                <label for="conductivity" class="form-label">Conductivity (µS/cm)</label>
+                <input type="text"  class="form-control" id="conductivity" placeholder="250">
+            </div>
+
+            <div class="col-4">
+                <label for="batchNo" class="form-label">Batch No.</label>
+                <input type="text"  class="form-control" id="batchNo" placeholder="4662">
+            </div>
+
+            <div class="col-4">
+                <label for="kv_out" class="form-label">kV</label>
+                <input type="text"  class="form-control" id="kv_out" placeholder="40.7">
+            </div>
+
+            <div class="col-4">
+                <label for="peakValue" class="form-label">Peak Value</label>
+                <input type="text"  class="form-control" id="peakValue" placeholder="Value at which  gloves failed">
+            </div>
+
+          <div class="col-4">
+            <button type="button" class="btn btn-primary" (click)="valueAssigned()">Generate QR Code</button>
+          </div>
+          <div class="col-4">
+            <ngx-qrcode [value]="value"></ngx-qrcode>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div class="card" style="width: 80%;margin-left: 10%;margin-top: 1%;margin-bottom: 2%; padding-bottom: 2%;" >
+  <div class="card-header" >
+   QR Code Generator
+  </div>
+
+  <div class="card-body" *ngIf='!isAdd'>
+    <button type="button" class="btn btn-primary"  (click)="isAdd = true">Create New Glove</button>
+
+  </div>
+  <div class="card-body" *ngIf='isAdd'>
+    <div class="needs-validation" novalidate>
+      <div class="row g-3">
+            <div class="col-4">
+                <label for="Product Number" class="form-label">Batch Number</label>
+                <input type="class" itle="Error Message" minlength="5" maxlength="10" [(ngModel)]="qrcodeData.batchno" name="batchno" class="form-control" id="Number" placeholder="10 Digit Alphanumeric Code">
+            </div>
+
+            <div class="col-4">
+                <label for="maxLeakmA" class="form-label">Max Leak mA</label>
+                <input type="text" [(ngModel)]="qrcodeData.maxLeack" name="maxLeack"  class="form-control" id="maxLeakmA" placeholder="24.0 mA">
+            </div>
+
+            <div class="col-4">
+                <label for="temp" class="form-label">Temp</label>
+                <input type="text" [(ngModel)]="qrcodeData.temp" name="temp" class="form-control" id="temp" placeholder="20.8">
+            </div>
+
+            <div class="col-4">
+                <label for="humidity" class="form-label">Humidity %</label>
+                <input type="text" [(ngModel)]="qrcodeData.humidity" name="humidity" class="form-control" id="humidity" placeholder="84">
+            </div>
+
+            <div class="col-4">
+                <label for="conductivity" class="form-label">Conductivity (µS/cm)</label>
+                <input type="text"  [(ngModel)]="qrcodeData.conductivity" name="conductivity" class="form-control" id="conductivity" placeholder="250">
+            </div>
+            <div class="col-4">
+
+            </div>
+
+            <div class="col-4">
+              <button type="button" class="btn btn-primary" (click)="valueAssigned()">Generate QR Code</button>
+            </div>
+
+            <div class="col-4">
+              <button type="button" class="btn btn-danger" (click)="isAdd=false">Cancel</button>
+            </div>
+            <div class="col-4"></div>
+
+            <div class="col-4" >
+              <div id="qrcode">
+              <ngx-qrcode [scale]= 10 id="qrCodeImage"
+              [value]="value" ></ngx-qrcode>
+              <br>
+            </div>
+            <button (click)="downloadImage()" download>Download QR Code</button>
+            </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+
+
+

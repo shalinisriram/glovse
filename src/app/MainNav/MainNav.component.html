@@ -1,0 +1,58 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid" style="padding: 0%;margin: 1%;">
+    <a class="navbar-brand" href="#">
+      <img src="..//../assets/logo-raychem.png" class="rounded" alt="..." style="width: 15rem;padding: 0%;">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" (click)="isShown = !isShown" >
+      <span class="navbar-toggler-icon"></span></button>
+
+      <div class="col-10">
+        <div class="collapse  navbar-collapse" [ngClass]="{ 'show': isShown }" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="/product" >Product </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" routerLink="/notification">Notification</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" routerLink="/User">User</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="/Customer">Customer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="/records">Records</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+  </div>
+</nav>
+
+<main role="main">
+<div class="col-md-12 ml-sm">
+  <router-outlet></router-outlet>
+</div>
+<br>
+<br>
+</main>
+
+<footer class="footer">
+<div class="container-fluid">
+  <i class="fas fa-camera"></i>
+  <div class="row">
+    <div class="col-md-12">
+      <p>Copyright © www.axiscades.com. All rights reserved. <span>Terms of Use </span>|<span>Privacy policy</span>
+      </p>
+    </div>
+  </div>
+</div>
+</footer>
